@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.dark{
+  text-align: center;
+  background-color: #343030;
+  color: silver;
+}
