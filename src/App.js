@@ -1,8 +1,9 @@
 import './App.css';
 import Car from "./components/car/Car";
-import {useState} from "react";
+import {Component, useState} from "react";
 import Driver from "./components/driver/Driver";
-import Toggle from "./components/toggle/Toggle"
+import Checkbox from "./components/checkbox/Checkbox"
+import User from "./components/user/User";
 
 // HW2 24.03.21
 // 1 відмалювати список карточок базуючись на якомусь створеному вами масиві
@@ -30,11 +31,21 @@ const myDrivers = [
     {id: 3, name: 'ivan', age: 45, gender: 'male', experience: 20},
 ];
 
+const myUsers = [
+    {id: 1, name: 'kolya', age: 29, status: true},
+    {id: 2, name: 'olya', age: 28, status: false},
+    {id: 3, name: 'max', age: 30, status: true},
+    {id: 4, name: 'anya', age: 31, status: false},
+    {id: 5, name: 'oleg', age: 28, status: false},
+];
+
 
 function App() {
 
     const [cars, setCars] = useState(myCars);
     const [drivers, setDrivers] = useState(myDrivers);
+    const [isDark, setDark] = useState(false);
+    const [users, setUsers] = useState(myUsers);
 
     // const clickHandlerFirst = () => {
     //     if (cars.length) {
@@ -76,11 +87,24 @@ function App() {
         setDrivers(newDrivers.filter(el => (el.id !== item.id)));
     }
 
-    const [isDark, setDark] = useState(false);
-
     const clickHandlerDark = () => {
         setDark(!isDark);
     }
+
+    const handleHideElem = (item) => {
+        if (!users.length) return;
+        const newUsers = [...users];
+        setUsers(newUsers.filter(el => (!el.hide)));
+    }
+
+    const showUser = (user) => {
+        <div>
+            <User key={user.id} user={user}/>
+            <br/>
+            <Checkbox onClick={handleHideElem}/>}
+        </div>
+    }
+
 
     return (
         // <div className="App">
@@ -115,6 +139,14 @@ function App() {
 
                 {drivers.map(driver => (
                     <Driver key={driver.id} driver={driver} funcDeleteButton={() => handleDelElem(driver)}/>))}
+            </div>
+
+            <hr/>
+
+            <div>
+                <>task 4</>
+
+                {users.map(user => showUser(user))}
             </div>
 
         </div>

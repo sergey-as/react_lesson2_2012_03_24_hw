@@ -1,10 +1,6 @@
 import React from 'react';
 import './Driver.css';
 
-const clickHandler =()=>{
-
-}
-
 function Driver({driver, funcDeleteButton}) {
     return (
         <div className="driver">
