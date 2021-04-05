@@ -1,7 +1,7 @@
 import React from 'react';
 import './Car.css';
 
-function Car({car}) {
+export function Car({car}) {
     return (
         <div className="car">
             <h1>model {car.model.toUpperCase()}</h1>

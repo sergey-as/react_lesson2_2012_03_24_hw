@@ -1,9 +1,10 @@
 import React from 'react';
 
-function Checkbox(props) {
+export function Checkbox(props) {
     return (
         <div>
-            <input type="checkbox" name="hide" value="a1" checked>
+            <input type="checkbox" name="hide" checked={props.checked}/>
+              <label htmlFor="hide">{props.hide}</label>
         </div>
 );
 }

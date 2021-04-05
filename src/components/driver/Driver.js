@@ -1,7 +1,7 @@
 import React from 'react';
 import './Driver.css';
 
-function Driver({driver, funcDeleteButton}) {
+export function Driver({driver, funcDeleteButton}) {
     return (
         <div className="driver">
             <h3>name {driver.name.toUpperCase()}</h3>

@@ -1,9 +1,9 @@
 import './App.css';
-import Car from "./components/car/Car";
 import {Component, useState} from "react";
-import Driver from "./components/driver/Driver";
-import Checkbox from "./components/checkbox/Checkbox"
-import User from "./components/user/User";
+import {Car} from "./components/car/Car";
+import {Driver} from "./components/driver/Driver";
+import {Checkbox} from "./components/checkbox/Checkbox"
+import {User} from "./components/user/User";
 
 // HW2 24.03.21
 // 1 відмалювати список карточок базуючись на якомусь створеному вами масиві
@@ -45,7 +45,11 @@ function App() {
     const [cars, setCars] = useState(myCars);
     const [drivers, setDrivers] = useState(myDrivers);
     const [isDark, setDark] = useState(false);
-    const [users, setUsers] = useState(myUsers);
+    const myNewUsers = myUsers.map(user => {
+        return {...user, hidden: false}
+    });
+    console.log(myNewUsers);
+    const [users, setUsers] = useState(myNewUsers);
 
     // const clickHandlerFirst = () => {
     //     if (cars.length) {
@@ -97,14 +101,6 @@ function App() {
         setUsers(newUsers.filter(el => (!el.hide)));
     }
 
-    const showUser = (user) => {
-        <div>
-            <User key={user.id} user={user}/>
-            <br/>
-            <Checkbox onClick={handleHideElem}/>}
-        </div>
-    }
-
 
     return (
         // <div className="App">
@@ -145,8 +141,9 @@ function App() {
 
             <div>
                 <>task 4</>
+                <Checkbox/>
 
-                {users.map(user => showUser(user))}
+                {/*{users.map(user => showUser(user))}*/}
             </div>
 
         </div>
