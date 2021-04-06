@@ -1,12 +1,13 @@
 import React from 'react';
 
-export function Checkbox({visible}) {
+export function Checkbox({user, funcHide}) {
+
     return (
         <div>
-            <input type="checkbox" name="visible" checked={visible}/>
-              <label htmlFor="visible">{visible ? 'visible' : 'hidden'}</label>
+            <input onClick={funcHide} type="checkbox" name="visible" defaultChecked={true}/>
+            <label htmlFor="visible">{user.visible ? 'visible' : 'hidden'}</label>
         </div>
-);
+    );
 }
 
 export default Checkbox;

@@ -96,10 +96,10 @@ function App() {
         setDark(!isDark);
     }
 
-    const handleHideElem = (item) => {
-        if (!users.length) return;
+    const handleHideElem = (index) => {
+        users[index].visible = !users[index].visible;
         const newUsers = [...users];
-        setUsers(newUsers.filter(el => (!el.hide)));
+        setUsers(newUsers);
     }
 
 
@@ -143,11 +143,8 @@ function App() {
             <div>
                 <>task 4</>
                 <br/>
+                {users.map((user, index) => (<UserWithCheckbox key={user.id} user={user} funcHide={() => handleHideElem(index)}/>))}
 
-                {users.map(user => {
-                    <User key={user.id} user={user}/>
-                    // <UserWithCheckbox key={user.id} user={user}/>
-                })}
             </div>
         </div>
     );

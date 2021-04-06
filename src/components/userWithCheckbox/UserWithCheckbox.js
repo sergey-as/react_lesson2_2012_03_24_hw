@@ -2,12 +2,12 @@ import React from 'react';
 import {User} from "../user/User";
 import {Checkbox} from "../checkbox/Checkbox";
 
-export function UserWithCheckbox({user}) {
-    console.log(user);
+export function UserWithCheckbox({user, funcHide}) {
+    // console.log(user);
     return (
         <div>
             <User user={user}/>
-            <Checkbox visible={user.visible}/>
+            <Checkbox user={user} funcHide={funcHide}/>
         </div>
     );
 }
