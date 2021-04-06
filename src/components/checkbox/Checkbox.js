@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function Checkbox(props) {
+export function Checkbox({visible}) {
     return (
         <div>
-            <input type="checkbox" name="hide" checked={props.checked}/>
-              <label htmlFor="hide">{props.hide}</label>
+            <input type="checkbox" name="visible" checked={visible}/>
+              <label htmlFor="visible">{visible ? 'visible' : 'hidden'}</label>
         </div>
 );
 }

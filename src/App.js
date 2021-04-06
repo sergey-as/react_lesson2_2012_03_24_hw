@@ -4,6 +4,7 @@ import {Car} from "./components/car/Car";
 import {Driver} from "./components/driver/Driver";
 import {Checkbox} from "./components/checkbox/Checkbox"
 import {User} from "./components/user/User";
+import {UserWithCheckbox} from "./components/userWithCheckbox/UserWithCheckbox";
 
 // HW2 24.03.21
 // 1 відмалювати список карточок базуючись на якомусь створеному вами масиві
@@ -45,10 +46,10 @@ function App() {
     const [cars, setCars] = useState(myCars);
     const [drivers, setDrivers] = useState(myDrivers);
     const [isDark, setDark] = useState(false);
+
     const myNewUsers = myUsers.map(user => {
-        return {...user, hidden: false}
+        return {...user, visible: true}
     });
-    console.log(myNewUsers);
     const [users, setUsers] = useState(myNewUsers);
 
     // const clickHandlerFirst = () => {
@@ -141,11 +142,13 @@ function App() {
 
             <div>
                 <>task 4</>
-                <Checkbox/>
+                <br/>
 
-                {/*{users.map(user => showUser(user))}*/}
+                {users.map(user => {
+                    <User key={user.id} user={user}/>
+                    // <UserWithCheckbox key={user.id} user={user}/>
+                })}
             </div>
-
         </div>
     );
 }

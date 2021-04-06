@@ -2,6 +2,7 @@ import React from 'react';
 import './User.css';
 
 export function User({user}) {
+    console.log(user);
     return (
         <div className="user">
             <h3>name {user.name.toUpperCase()}</h3>
